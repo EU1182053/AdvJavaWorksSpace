@@ -1,0 +1,44 @@
+package bubblesort;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class HashSetSort {
+	public HashSet<Integer> sortLinkedList(HashSet<Integer> set){
+		int temp = 0;
+		
+		for (int i = 0; i < set.size(); i++) {
+			for (int j = 1; j < set.size(); j++) {
+				if(set.get(j-1)>set.get(j)) {  // eg. 0th element > 1st element, then it will be swapped
+					temp = set.get(j-1);   // swapping element storing in temp
+					set.set(j-1, set.get(j));  // eg. swap the smaller element
+					set.set(j, temp); // swap the bigger element, which have stored in temp
+				}
+			}
+		}
+		
+		return link;
+	}
+
+	public static void main(String[] args) {
+		HashSet<Integer> set = new HashSet<Integer>();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of the linked list");
+		
+		int len = sc.nextInt();
+		System.out.println("Enter the elemnt and press enter.");
+		for (int i = 0; i < len; i++) {
+			set.add(sc.nextInt());
+		}
+		System.out.println(set);
+		HashSetSort hashsetsort = new HashSetSort();
+		hashsetsort.sortLinkedList(set);
+		
+		System.out.println("Linked List after sorting,");
+		for (Integer val: set) {
+			System.out.println(val+",\t");
+		}
+	}
+}

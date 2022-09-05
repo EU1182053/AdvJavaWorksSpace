@@ -1,0 +1,63 @@
+package com.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CompanyServlet
+ */
+@WebServlet("/CompanyHome/MyCompanyHome")
+public class CompanyServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	String contextName, contextValue;
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CompanyServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+
+		String companyName = config.getInitParameter("companyName");
+		String headOffice = config.getInitParameter("headOffice");
+		
+		System.out.println("companyName"+companyName+"headOffice"+headOffice);
+		
+		ServletContext context = config.getServletContext();
+		contextValue = context.getInitParameter("city");
+		
+		System.out.println("city"+ contextValue);
+	}
+
+	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("request comes in Get");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

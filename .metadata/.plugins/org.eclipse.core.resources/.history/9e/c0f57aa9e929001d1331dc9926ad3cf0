@@ -1,0 +1,76 @@
+package com.pojo;
+
+import java.util.List;
+
+public class User {
+
+	private String name, uname, password, loc, gender;
+	private int age;
+	private long contact;
+	List<String> courseList;
+	public String getName() {
+		return name;
+	}
+	public User(String name, String uname, String password, String loc, String gender, int age, long contact,
+			List<String> courseList) {
+		super();
+		this.name = name;
+		this.uname = uname;
+		this.password = password;
+		this.loc = loc;
+		this.gender = gender;
+		this.age = age;
+		this.contact = contact;
+		this.courseList = courseList;
+	}
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", uname=" + uname + ", password=" + password + ", loc=" + loc + ", gender="
+				+ gender + ", age=" + age + ", contact=" + contact + ", courseList=" + courseList + "]";
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getLoc() {
+		return loc;
+	}
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public long getContact() {
+		return contact;
+	}
+	public void setContact(long contact) {
+		this.contact = contact;
+	}
+	public List<String> getCourseList() {
+		return courseList;
+	}
+	public void setCourseList(List<String> courseList) {
+		this.courseList = courseList;
+	}
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <section>
+        <h1>Password Change Form</h1>
+        <!--  in action attribute put path of servlet bydefault is get request -->
+        <form action="UserServlet" method="post">
+            <!-- text field-->
+          
+            
+            
+            <label for="uname">Set Username: </label>
+            <input type="text" name="uname"  id="uname" minlength="3" maxlength="10" required>
+            <label for="pass">Set Password: </label>
+            <input type="password" name="pass" id="pass" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}">
+            <label for="confirmpass">New Password: </label>
+            <input type="password"  name="newPass" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,} required>
+            
+             
+            <input type="submit" value="Change">
+            
+            <input type="hidden" name="act" value="changeAction"> 
+        </form>
+    </section>
+</body>
+</html>

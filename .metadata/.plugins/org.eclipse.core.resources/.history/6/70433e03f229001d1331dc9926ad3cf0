@@ -1,0 +1,81 @@
+package com.servlets;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.model.UserImpl;
+import com.pojo.User;
+
+/**
+ * Servlet implementation class UserServlet
+ */
+@WebServlet("/UserServlet")
+public class UserServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UserServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("Request Comes in doGet.");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	//	http://localhost:8080/Servlets/UserServlet?myName=siddhesh&age=20&
+//		contact=1234567456&email=sid%40gmail.com&uname=sds123&
+//		password=Sidd%40123&confirmpass=Sidd%40123&course=web&course=angular&
+//		gender=male&loc=dadar
+		String name = request.getParameter("myName");
+		int age = Integer.parseInt("age");
+		long contact = Long.parseLong("contact");
+		String email = request.getParameter("email");
+		String uname = request.getParameter("uname");
+		String password = request.getParameter("password");
+		String gender = request.getParameter("gender");
+		String loc = request.getParameter("loc");
+		List<String> course = Arrays.asList("course");
+		
+		
+		User user = new User();
+		
+		user.setAge(age);
+		user.setContact(contact);
+		user.setCourseList(course);
+		user.setGender(gender);
+		user.setLoc(loc);
+		user.setName(name);
+		user.setUname(uname);
+		user.setPassword(password);
+		user.setEmail(email);
+		
+		UserImpl impl = new UserImpl();
+		System.out.println(user);
+		boolean b = impl.register(user);
+		if(b)
+			System.out.println("Success");
+		else
+			System.out.println("Failed.");
+		
+	}
+
+}

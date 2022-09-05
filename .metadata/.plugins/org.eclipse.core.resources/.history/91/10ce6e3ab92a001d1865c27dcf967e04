@@ -1,0 +1,43 @@
+package bubblesort;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Array {
+	
+	public  ArrayList<Integer> sortArray(ArrayList<Integer> myArray) {
+		int temp = 0;  // local variable for swapping
+		for (int i = 0; i < myArray.size(); i++) {
+			for (int j = 1; j < myArray.size(); j++) {
+				if(myArray.get(j-1)>myArray.get(j)) {  // eg. 0th element > 1st element, then it will be swapped
+					temp = myArray.get(j-1);   // swapping element storing in temp
+					myArray.set(j-1, myArray.get(j));  // eg. swap the smaller element
+					myArray.set(j, temp); // swap the bigger element, which have stored in temp
+				}
+			}
+		}
+		return myArray;
+		
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<Integer> myArray = new ArrayList<Integer>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of the array.");
+		int len = sc.nextInt();
+		System.out.println("Enter the elemnt and press enter.");
+		for (int i = 0; i < len; i++) {
+			int data = sc.nextInt();
+			myArray.add(data);
+		}
+		
+		Array array = new Array();
+		array.sortArray(myArray);
+		System.out.println("After sorting, the array is");
+		for (int i = 0; i < myArray.size(); i++) {
+			System.out.print(myArray.get(i)+",\t");
+		}
+		
+	}
+
+}

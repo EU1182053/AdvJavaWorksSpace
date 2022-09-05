@@ -1,0 +1,47 @@
+package com.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.connection.MyConnection;
+import com.pojo.User;
+
+public class UserImpl {
+	
+	public boolean register(User user) {
+		boolean b = false;
+		String sql = "insert into user values(?,?,?,?,?,?,?,?)";
+		try (Connection connection=MyConnection.connect()){	  
+			PreparedStatement pstatement=connection.prepareStatement(sql); // sql must be passed here
+			 
+			pstatement.setString(1, user.getName());
+			pstatement.setInt(2, user.getAge());
+			pstatement.setLong(3, user.getContact());
+			pstatement.setString(4, user.getEmail());
+			pstatement.setString(5, user.getUname());
+			pstatement.setString(6, user.getPassword());
+			pstatement.setString(7, user.getGender());
+			pstatement.setString(8, user.getLoc());
+			
+			System.out.println(pstatement);
+			System.out.println(pstatement.getClass());
+			
+			  int no=pstatement.executeUpdate(); // do not pass sql here
+			  System.out.println("Number of rows affected: "+no);
+			  if(no>0)
+				  b=true;
+			  System.out.println("b"+b);
+		} 
+		  catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Connection Autoclosed"+b);
+		return b;
+		}
+
+}

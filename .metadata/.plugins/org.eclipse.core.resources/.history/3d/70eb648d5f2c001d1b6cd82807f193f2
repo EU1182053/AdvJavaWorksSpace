@@ -1,0 +1,138 @@
+package trycatch;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class ATM {
+	
+//	public AccountDetails(int machineBalance, int accountBalance, int pin, int deposit, int withdraw, String name,
+//			int type, int accountNumber)
+	
+	AccountDetails accountDetails = new AccountDetails(10000, 5000, 1234, 0, 0, "Admin", , 0)
+
+	public static void main(String[] args) {
+		Random random = new Random();
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int ch, accountNumber, pin, mobileNumber, matchOTP, userEnteredOTP, newPin;
+		String type;
+		do {
+			System.out.println("1.Check Balace\n2.Generate Pin\n3.Deposit money\n4.Withdraw Money");
+			ch = sc.nextInt();
+			switch (ch) {
+
+			case 1:
+
+				try {
+					System.out.println("1.Current\t2.Saving");
+
+					// Account Selection
+					ch = sc.nextInt();
+					if (ch == 1) {
+						type = "Current";
+					} else {
+						type = "Saving";
+					}
+
+					// Get the Account Number
+					try {
+						System.out.println("Enter your Account Number.");
+						accountNumber = sc.nextInt();
+
+						// get the PIN
+						System.out.println("Enter your PIN.");
+						pin = sc.nextInt();
+
+						// call the function who will show the account balance.
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			case 2:
+				// Generate PIN
+				try {
+					System.out.println("Enter your Account Number.");
+					accountNumber = sc.nextInt();
+
+					try {
+						System.out.println("Sending the OTP on registered Mobile Number 73XXXXXX90.");
+
+						matchOTP = random.nextInt(1000);
+						System.out.println("Your OTP is, " + matchOTP);
+
+						System.out.println("Enter the OTP.");
+
+						userEnteredOTP = sc.nextInt();
+						if (userEnteredOTP == matchOTP) {
+							newPin = random.nextInt(1000);
+							System.out.println("Your New PIN is, " + newPin);
+							// store/replace the new pin in user's account details.
+						} else {
+							System.out.println("OTP does not match.");
+							break;
+						}
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				break;
+
+			case 3:
+				// Deposit Money
+
+				break;
+
+			case 4:
+				// Withdraw Money
+				try {
+					System.out.println("1.Current\t2.Saving");
+
+					// Account Selection
+					ch = sc.nextInt();
+					if (ch == 1) {
+						type = "Current";
+					} else {
+						type = "Saving";
+					}
+
+					// Get the Account Number
+					try {
+						System.out.println("Enter your Account Number.");
+						accountNumber = sc.nextInt();
+
+						try {
+							// get the PIN
+							System.out.println("Enter your PIN.");
+							pin = sc.nextInt();
+
+							// call the function who will process the withdraw function.
+						} catch (Exception e) {
+							// TODO: handle exception
+						}
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				break;
+
+			case 5:
+				break;
+			default:
+				break;
+			}
+		} while (ch < 6);
+	}
+
+}
