@@ -1,6 +1,7 @@
 package com.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 
 import javax.servlet.ServletConfig;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.connection.MyConnection;
+import com.model.UserImpl;
 
 /**
  * Servlet implementation class UserServlet
@@ -36,12 +38,22 @@ public class UserServlet extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		PrintWriter pw=response.getWriter();
+		String userAction=request.getParameter("act");
+		System.out.println("useraction"+userAction);
+		UserImpl impl=new UserImpl();
+		
+		if(userAction.equalsIgnoreCase("registerAction"))
+		{
+			
+		}
+		else if(userAction.equalsIgnoreCase("loginAction"))
+		{
+			
+		}
+		else if(userAction.equalsIgnoreCase(""))
+		System.out.println("Request comes in post");
 	}
 
 }

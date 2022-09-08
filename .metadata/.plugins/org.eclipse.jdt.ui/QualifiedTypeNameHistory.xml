@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.pojo.User"/>
-    <fullyQualifiedTypeName name="com.model.UserImpl"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
@@ -27,4 +26,7 @@
     <fullyQualifiedTypeName name="assignment308.CRUDDemo"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.connection.MyConnection"/>
+    <fullyQualifiedTypeName name="com.model.UserImpl"/>
+    <fullyQualifiedTypeName name="com.db.MyConnection"/>
+    <fullyQualifiedTypeName name="com.pojo.Employee"/>
 </qualifiedTypeNameHistroy>
